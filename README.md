@@ -2,7 +2,8 @@
 
 See [indentlog](https://github.com/rconybea/indentlog)
 
-[Nix](https://nixos.org) package
+[Nix](https://nixos.org) (functional package manager) package
+([INRIA Tutorial](https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial) here)
 
 To build & install:
 ```
