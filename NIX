@@ -1,0 +1,39 @@
+* to see current nix channel
+
+   $ nix-channel --list
+   nixos-23.05 http://nixos.org/channels/nixos-23.05
+
+* to see all channel hashes
+
+   $ git ls-remote --refs https://github.com/NixOS/nixpkgs.git
+   b9686c27ed9ac993923b6e4ec2234dc0cf0b864d        refs/heads/0.5-stable
+   dfa8731b0a91db6084baf07aa27264fb585147a0        refs/heads/angelfish-fix
+   7207b25099d0a199d438dde143c67de4074a586a        refs/heads/auto-update/dolibarr
+   5c39d7268ca4b706c97ee23b6ff0d15b0d0176e7        refs/heads/auto-update/python3.10-autofaiss
+   2390dbd6070132132d3a94ee124f2d2f273ff450        refs/heads/backport-238828-to-release-23.05
+   ...
+
+* to see latest hash for current nix channel
+
+   browse to [[https://channels.nixos.org/?prefix=nixos-23.05/]]
+   then follow the [[git-revision]] link
+
+* to see original hash for current nix channel
+
+   $ git ls-remote --refs https://github.com/NixOS/nixpkgs.git | grep 'tags/23\.05$'
+   90d94ea32eed9991e2b8c6a761ccd8145935c57c        refs/tags/23.05
+
+* to pin nix revision
+
+  default.nix:
+   {
+     pkgs ? import(fetchTarball {
+       url = "https://github.com/NixOS/nixpkgs/archive/90d94ea32eed9991e2b8c6a761ccd8145935c57c.tar.gz";
+     }) {}
+   }:
+
+   pkgs.stdenv.mkDerivation rec {
+     buildInputs = [ pkgs.cmake ];
+
+     ...
+   }
