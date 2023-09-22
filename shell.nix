@@ -27,5 +27,6 @@ pkgs.mkShell rec {
     pkgs.wget
     pkgs.openssh
     pkgs.which
+    pkgs.lcov
   ];
 }

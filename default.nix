@@ -14,8 +14,8 @@ pkgs.stdenv.mkDerivation rec {
 
   src = pkgs.fetchgit {
     url = "https://github.com/rconybea/indentlog";
-    rev = "7676b7a";
-    sha256 = "sha256-5keXrlvkogROc7+MxhRcclLZ8n3B9wzE7tQslFc9sGY=#";
+    rev = "4f6f045423289cae4d1422594ead8a5b82120b63";
+    sha256 = "qUF/WDB0efk8ZAXAp3S10PkclpD8Ao6ikyNlY6RmHaU=";
   };
 
   buildInputs = [ pkgs.cmake
